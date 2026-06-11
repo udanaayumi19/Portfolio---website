@@ -10,6 +10,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
+:root{
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --text:#0f172a;
+    --primary:#7c3aed;
+    --secondary:#ec4899;
+    --border:#e5e7eb;
+}
+
+body.dark{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f8fafc;
+    --border:#334155;
+}
+
 *{
     margin:0;
     padding:0;
@@ -20,25 +36,49 @@
 html{scroll-behavior:smooth;}
 
 body{
-    background:linear-gradient(135deg,#0f172a,#7c3aed,#ec4899);
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
     min-height:100vh;
     padding:30px;
+    color:var(--text);
+    transition:0.3s;
 }
 
 .container{
     max-width:1000px;
     margin:auto;
-    background:white;
+    background:var(--card);
     border-radius:20px;
     overflow:hidden;
     box-shadow:0 15px 40px rgba(0,0,0,0.3);
+    transition:0.3s;
 }
 
 .header{
-    background:linear-gradient(135deg,#2563eb,#7c3aed,#ec4899);
+    background:linear-gradient(135deg,#2563eb,var(--primary),var(--secondary));
     color:white;
     text-align:center;
     padding:50px 20px;
+    position:relative;
+}
+
+#themeBtn{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:rgba(255,255,255,0.2);
+    border:2px solid white;
+    color:white;
+    padding:8px 16px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:600;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+#themeBtn:hover{
+    background:white;
+    color:var(--primary);
 }
 
 .profile-link{text-decoration:none;}
@@ -48,7 +88,7 @@ body{
     height:140px;
     border-radius:50%;
     background:linear-gradient(135deg,#ffffff,#f8fafc);
-    color:#7c3aed;
+    color:var(--primary);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -59,7 +99,7 @@ body{
     transition:0.3s;
 }
 
-.profile:hover{transform:scale(1.08);}
+.profile:hover{transform:scale(1.08) rotate(5deg);}
 
 .header h1{margin-top:15px; font-size:36px;}
 .header p{font-size:18px; margin-top:10px;}
@@ -69,23 +109,23 @@ body{
 .section{margin-bottom:30px;}
 
 .section h2{
-    color:#7c3aed;
+    color:var(--primary);
     margin-bottom:15px;
-    border-left:5px solid #ec4899;
+    border-left:5px solid var(--secondary);
     padding-left:10px;
 }
 
 .card{
-    background:linear-gradient(135deg,#ffffff,#f8fafc);
-    padding:20px;
+    background:var(--card);
+    padding:25px;
     border-radius:12px;
     transition:0.3s;
-    border:1px solid #e5e7eb;
+    border:2px solid var(--border);
 }
 
 .card:hover{
     transform:translateY(-5px);
-    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    box-shadow:0 8px 25px rgba(124,58,237,0.2);
 }
 
 .skills{
@@ -108,8 +148,8 @@ body{
 }
 
 .skill:hover{
-    transform:scale(1.08);
-    background:linear-gradient(135deg,#1a1a1a,#444);
+    transform:scale(1.08) translateY(-3px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 .contact{text-align:center;}
@@ -120,7 +160,7 @@ body{
     background:linear-gradient(135deg,#ef4444,#dc2626);
     color:white;
     text-decoration:none;
-    padding:12px 20px;
+    padding:12px 25px;
     border-radius:30px;
     transition:0.3s;
     font-weight:bold;
@@ -128,7 +168,8 @@ body{
 
 .btn:hover{
     background:linear-gradient(135deg,#dc2626,#991b1b);
-    transform:scale(1.08);
+    transform:scale(1.08) translateY(-2px);
+    box-shadow:0 8px 20px rgba(220,38,38,0.3);
 }
 
 .github-link{margin-top:15px;}
@@ -142,10 +183,10 @@ body{
 .github-link a:hover{text-decoration:underline;}
 
 .footer{
-    background:#f8fafc;
+    background:var(--border);
     text-align:center;
     padding:20px;
-    color:#555;
+    color:var(--text);
     font-weight:bold;
 }
 
@@ -161,21 +202,23 @@ body{
 
 /* Student Management System Styles */
 .sms-container {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background: var(--card);
     border-radius: 12px;
     padding: 20px;
     margin-top: 20px;
+    border:2px solid var(--border);
 }
 
 .sms-container input,.sms-container button {
-    padding: 10px;
-    margin: 5px 0;
+    padding: 12px;
+    margin: 8px 0;
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    border: 2px solid var(--border);
     border-radius: 8px;
     font-family: 'Poppins', Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
 
 .sms-container button {
@@ -183,6 +226,7 @@ body{
     color: white;
     border: none;
     cursor: pointer;
+    font-weight:600;
     transition: transform 0.2s;
 }
 
@@ -202,12 +246,12 @@ body{
 }
 
 .sms-container th,.sms-container td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border);
     padding: 10px;
     text-align: left;
 }
 
-.sms-container th { background: #f3f4f6; }
+.sms-container th { background: var(--border); }
 
 .sms-delete-btn { background: #dc2626!important; }
 .sms-delete-btn:hover { background: #b91c1c!important; }
@@ -216,22 +260,16 @@ body{
 .sms-action-btns { display: flex; gap: 5px; flex-wrap:wrap; }
 .sms-action-btns button { padding: 5px 10px; font-size: 12px; }
 
-@media (max-width: 768px) {
-.sms-container table { font-size: 12px; }
-.sms-container th,.sms-container td { padding: 5px; }
-.sms-container input,.sms-container button { font-size: 16px; }
-}
-
 /* Mini Shop Styles */
 .shop-container{
-    background:linear-gradient(135deg,#0f172a,#7c3aed);
+    background:linear-gradient(135deg,#0f172a,var(--primary));
     padding:20px;
     border-radius:12px;
     margin-top:20px;
 }
 
 .shop-header{
-    background:white;
+    background:var(--card);
     padding:15px 20px;
     border-radius:12px;
     display:flex;
@@ -242,7 +280,7 @@ body{
 }
 
 .shop-header h3{
-    color:#7c3aed;
+    color:var(--primary);
     font-size:20px;
 }
 
@@ -272,7 +310,7 @@ body{
 }
 
 .shop-product-card{
-    background:white;
+    background:var(--card);
     border-radius:12px;
     padding:15px;
     transition:0.3s;
@@ -297,13 +335,13 @@ body{
 }
 
 .shop-product-card h4{
-    color:#1e293b;
+    color:var(--text);
     margin-bottom:6px;
     font-size:16px;
 }
 
 .shop-price{
-    color:#7c3aed;
+    color:var(--primary);
     font-size:20px;
     font-weight:bold;
     margin-bottom:12px;
@@ -344,7 +382,7 @@ body{
 }
 
 .shop-modal-content{
-    background:white;
+    background:var(--card);
     padding:25px;
     border-radius:15px;
     max-width:500px;
@@ -364,31 +402,32 @@ body{
     border:none;
     font-size:24px;
     cursor:pointer;
-    color:#666;
+    color:var(--text);
 }
 
 .shop-cart-item{
     display:flex;
     justify-content:space-between;
     padding:12px 0;
-    border-bottom:1px solid #e5e7eb;
+    border-bottom:1px solid var(--border);
 }
 
 .shop-total{
     font-size:20px;
     font-weight:bold;
-    color:#7c3aed;
+    color:var(--primary);
     text-align:right;
     margin-top:15px;
 }
 
-@media (max-width: 600px){
+@media (max-width: 768px) {
     body{padding:15px;}
-.header{padding:35px 20px;}
-.header h1{font-size:28px;}
-.profile{width:110px; height:110px; font-size:40px;}
-.content{padding:20px;}
-.shop-products{grid-template-columns:1fr;}
+  .header{padding:35px 20px;}
+  .header h1{font-size:28px;}
+  .profile{width:110px; height:110px; font-size:40px;}
+  .content{padding:20px;}
+  .shop-products{grid-template-columns:1fr;}
+    #themeBtn{top:15px; right:15px; padding:6px 12px; font-size:14px;}
 }
 </style>
 </head>
@@ -397,6 +436,7 @@ body{
 <div class="container">
 
 <div class="header">
+<button id="themeBtn">🌙 Dark</button>
 <a href="https://github.com/udanaayumi19" target="_blank" class="profile-link">
 <div class="profile">A</div>
 </a>
@@ -448,7 +488,7 @@ I specialize in building modern, responsive, and user-friendly websites using HT
 <p><strong>Todo App</strong> - Task manager with LocalStorage</p>
 
 <!-- Student Management System Demo -->
-<h3 style="margin-top:25px; color:#7c3aed;">🎓 Student Management System - Live Demo</h3>
+<h3 style="margin-top:25px; color:var(--primary);">🎓 Student Management System - Live Demo</h3>
 <div class="sms-container">
     <form id="studentForm">
         <input type="text" id="name" placeholder="Student Name" required>
@@ -482,7 +522,7 @@ I specialize in building modern, responsive, and user-friendly websites using HT
 </div>
 
 <!-- Library Management System Demo -->
-<h3 style="margin-top:35px; color:#7c3aed;">📚 Library Management System - Live Demo</h3>
+<h3 style="margin-top:35px; color:var(--primary);">📚 Library Management System - Live Demo</h3>
 <div class="sms-container" id="libraryContainer">
     <form id="bookForm">
         <input type="text" id="bookTitle" placeholder="Book Title" required>
@@ -515,7 +555,7 @@ I specialize in building modern, responsive, and user-friendly websites using HT
 </div>
 
 <!-- Mini Shop Demo -->
-<h3 style="margin-top:35px; color:#7c3aed;">🛒 Mini Shop - E-Commerce Demo</h3>
+<h3 style="margin-top:35px; color:var(--primary);">🛒 Mini Shop - E-Commerce Demo</h3>
 <div class="shop-container">
     <div class="shop-header">
         <h3>Mini Shop</h3>
@@ -555,9 +595,8 @@ I specialize in building modern, responsive, and user-friendly websites using HT
 <h2>Contact</h2>
 <div class="card contact">
 <a href="https://wa.me/94701318700" target="_blank" class="btn">
-<i class="fa-brands fa-whatsapp" style="margin-right:30px; color:#25D366;"></i>
-<i class="fa-solid fa-phone" style="margin-right:38px; color: #007bff;"></i> Whatsapp Or Contact
-0701318700
+<i class="fa-brands fa-whatsapp" style="margin-right:10px; color:#25D366;"></i>
+<i class="fa-solid fa-phone" style="margin-right:10px; color:#fff;"></i> Whatsapp Or Contact 0701318700
 </a>
 
 <a href="mailto:udanaayumi19@gmail.com" class="btn">
@@ -574,6 +613,19 @@ I specialize in building modern, responsive, and user-friendly websites using HT
 </div>
 
 <script>
+// Dark Mode Toggle
+const themeBtn=document.getElementById('themeBtn');
+themeBtn.onclick=()=>{
+    document.body.classList.toggle('dark');
+    themeBtn.textContent=document.body.classList.contains('dark')?'☀️ Light':'🌙 Dark';
+    localStorage.setItem('theme',document.body.classList.contains('dark')?'dark':'light');
+}
+// Load saved theme
+if(localStorage.getItem('theme')==='dark'){
+    document.body.classList.add('dark');
+    themeBtn.textContent='☀️ Light';
+}
+
 // Student Management System Script
 let students = JSON.parse(localStorage.getItem('students')) || [];
 let editIndex = -1;
@@ -667,7 +719,7 @@ function exportCSV() {
 
 displayStudents();
 
-// Library Management System Script - FIXED
+// Library Management System Script
 let books = JSON.parse(localStorage.getItem('libraryBooks')) || [];
 let bookEditIndex = -1;
 const LATE_FEE_PER_DAY = 50;
@@ -692,7 +744,7 @@ function displayBooks() {
     tbody.innerHTML = '';
 
     books.forEach((book, index) => {
-        const row = tbody.insertRow(); // FIXED: row variable was missing
+        const row = tbody.insertRow();
         const statusColor = book.status === 'Available'? '#059669' : '#dc2626';
         const lateFee = calculateLateFee(book.dueDate);
 
