@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A.W.Ayumi Udana  Portfolio & Digital CV">
+<meta name="description" content="A.W.Ayumi Udana Portfolio & Digital CV">
 <title>A.W.Ayumi Udana Digital CV & Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -95,7 +95,7 @@ body{
 }
 
 .skill{
-    background:linear-gradient(135deg,#000,#333); /* nil-purple -> kalu */
+    background:linear-gradient(135deg,#000,#333);
     color:white;
     padding:10px 15px;
     border-radius:20px;
@@ -109,7 +109,7 @@ body{
 
 .skill:hover{
     transform:scale(1.08);
-    background:linear-gradient(135deg,#1a1a1a,#444); /* hover kalu */
+    background:linear-gradient(135deg,#1a1a1a,#444);
 }
 
 .contact{text-align:center;}
@@ -159,13 +159,76 @@ body{
 .excel-icon{color:#217346;}
 .ai-icon{color:#FF6B35;}
 
+/* Student Management System Styles */
+.sms-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.sms-container input,.sms-container button {
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+.sms-container button {
+    background: linear-gradient(45deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.sms-container button:hover {
+    transform: translateY(-2px);
+    background: #1d4ed8;
+}
+
+.sms-btn-row { display: flex; gap: 10px; }
+.sms-btn-row button { width: auto; flex: 1; }
+
+.sms-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.sms-container th,.sms-container td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.sms-container th { background: #f3f4f6; }
+
+.sms-delete-btn { background: #dc2626!important; }
+.sms-delete-btn:hover { background: #b91c1c!important; }
+.sms-edit-btn { background: #059669!important; }
+.sms-edit-btn:hover { background: #047857!important; }
+.sms-action-btns { display: flex; gap: 5px; }
+.sms-action-btns button { padding: 5px 10px; font-size: 12px; }
+
+@media (max-width: 768px) {
+   .sms-container table { font-size: 12px; }
+   .sms-container th,.sms-container td { padding: 5px; }
+   .sms-container input,.sms-container button { font-size: 16px; }
+}
+
 /* Mobile Responsive */
 @media (max-width: 600px){
     body{padding:15px;}
-    .header{padding:35px 20px;}
-    .header h1{font-size:28px;}
-    .profile{width:110px; height:110px; font-size:40px;}
-    .content{padding:20px;}
+   .header{padding:35px 20px;}
+   .header h1{font-size:28px;}
+   .profile{width:110px; height:110px; font-size:40px;}
+   .content{padding:20px;}
 }
 </style>
 </head>
@@ -188,28 +251,17 @@ body{
 <div class="card">
 <p>
 Hi! I’m A.W. Ayumi Udana, a passionate and creative Software Developer who loves turning ideas into real digital experiences.
-I specialize in building modern, responsive, and user-friendly websites using HTML, CSS, JavaScript, PHP, MySQL, and Python. I enjoy learning new technologies every day and improving my coding skills through real-world projects.
-I believe that great websites are not just about code — they are about experience, design, and impact.</p>
+I specialize in building modern, responsive, and user-friendly websites using HTML, CSS, JavaScript, PHP, MySQL, and Python.</p>
 <br>
-<p>
-💡 What I Do
-</p><br><p>
-🌐 Responsive Website Development</p><p>
-🎨 Clean & Modern UI Design<
-/p><p>
-⚙️ Frontend & Backend Basics
-</p><p>
-🗄️ Database Integration (MySQL)</p><p>
-🧠 Problem Solving & Debugging
-</p><br>
-<p>
-🚀 My Goal
-</p><br>
-<p>
-My goal is to become a skilled Full Stack Developer and build powerful web applications that solve real problems and help people in everyday life.
-I’m continuously learning, building, and improving myself to reach the next level in software development.
-</p>
-
+<p>💡 What I Do</p><br>
+<p>🌐 Responsive Website Development</p>
+<p>🎨 Clean & Modern UI Design</p>
+<p>⚙️ Frontend & Backend Basics</p>
+<p>🗄️ Database Integration (MySQL)</p>
+<p>🧠 Problem Solving & Debugging</p>
+<br>
+<p>🚀 My Goal</p><br>
+<p>My goal is to become a skilled Full Stack Developer and build powerful web applications that solve real problems.</p>
 </div>
 </div>
 
@@ -234,6 +286,41 @@ I’m continuously learning, building, and improving myself to reach the next le
 <div class="card">
 <p><strong>Portfolio Website</strong> - Responsive design using HTML, CSS, JavaScript</p>
 <p><strong>Todo App</strong> - Task manager with LocalStorage</p>
+
+<!-- Student Management System Demo -->
+<h3 style="margin-top:25px; color:#7c3aed;">🎓 Student Management System - Live Demo</h3>
+<div class="sms-container">
+    <form id="studentForm">
+        <input type="text" id="name" placeholder="Student Name" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="text" id="course" placeholder="Course" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit" id="submitBtn">Add Student</button>
+    </form>
+
+    <h4 style="margin-top:20px;">Student List</h4>
+    <input type="text" id="searchBox" placeholder="🔍 Search student..." onkeyup="searchStudent()">
+
+    <div class="sms-btn-row">
+        <button onclick="exportCSV()">📥 Export CSV</button>
+    </div>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Course</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
 <div class="github-link">
 🔗 <a href="https://github.com/udanaayumi19" target="_blank">View All Projects</a>
 </div>
@@ -250,7 +337,6 @@ I’m continuously learning, building, and improving myself to reach the next le
 <div class="section">
 <h2>Contact</h2>
 <div class="card contact">
-
 <a href="https://wa.me/94701318700" target="_blank" class="btn">
 <i class="fa-brands fa-whatsapp" style="margin-right:30px; color:#25D366;"></i>
 <i class="fa-solid fa-phone" style="margin-right:38px; color: #007bff;"></i> Whatsapp Or Contact
@@ -258,10 +344,8 @@ I’m continuously learning, building, and improving myself to reach the next le
 </a>
 
 <a href="mailto:udanaayumi19@gmail.com" class="btn">
-📧 Email - 
- udanaayumi19@gmail.com
+📧 Email - udanaayumi19@gmail.com
 </a>
-
 </div>
 </div>
 </div>
@@ -271,5 +355,100 @@ I’m continuously learning, building, and improving myself to reach the next le
 </div>
 
 </div>
+
+<script>
+    let students = JSON.parse(localStorage.getItem('students')) || [];
+    let editIndex = -1;
+
+    function displayStudents() {
+        const tbody = document.querySelector('#studentTable tbody');
+        tbody.innerHTML = '';
+
+        students.forEach((student, index) => {
+            const row = tbody.insertRow();
+            row.innerHTML = `
+                <td>${student.name}</td>
+                <td>${student.phone}</td>
+                <td>${student.address}</td>
+                <td>${student.course}</td>
+                <td>${student.email}</td>
+                <td class="sms-action-btns">
+                    <button class="sms-edit-btn" onclick="editStudent(${index})">Edit</button>
+                    <button class="sms-delete-btn" onclick="deleteStudent(${index})">Delete</button>
+                </td>
+            `;
+        });
+    }
+
+    document.getElementById('studentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const student = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            address: document.getElementById('address').value,
+            course: document.getElementById('course').value,
+            email: document.getElementById('email').value
+        };
+
+        if(editIndex >= 0) {
+            students[editIndex] = student;
+            editIndex = -1;
+            document.getElementById('submitBtn').innerText = "Add Student";
+        } else {
+            students.push(student);
+        }
+
+        localStorage.setItem('students', JSON.stringify(students));
+        displayStudents();
+        this.reset();
+    });
+
+    function editStudent(index) {
+        editIndex = index;
+        let student = students[index];
+        document.getElementById('name').value = student.name;
+        document.getElementById('phone').value = student.phone;
+        document.getElementById('address').value = student.address;
+        document.getElementById('course').value = student.course;
+        document.getElementById('email').value = student.email;
+        document.getElementById('submitBtn').innerText = "Update Student";
+    }
+
+    function deleteStudent(index) {
+        if(confirm("Delete this student?")) {
+            students.splice(index, 1);
+            localStorage.setItem('students', JSON.stringify(students));
+            displayStudents();
+        }
+    }
+
+    function searchStudent() {
+        let input = document.getElementById('searchBox').value.toLowerCase();
+        let rows = document.querySelector('#studentTable tbody').getElementsByTagName('tr');
+
+        for(let i = 0; i < rows.length; i++) {
+            let text = rows[i].textContent.toLowerCase();
+            rows[i].style.display = text.includes(input)? '' : 'none';
+        }
+    }
+
+    function exportCSV() {
+        let csv = 'Name,Phone,Address,Course,Email\n';
+        students.forEach(s => {
+            csv += `"${s.name}","${s.phone}","${s.address}","${s.course}","${s.email}"\n`;
+        });
+
+        let blob = new Blob([csv], {type: 'text/csv'});
+        let url = window.URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = 'students.csv';
+        a.click();
+    }
+
+    displayStudents();
+</script>
+
 </body>
 </html>
