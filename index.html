@@ -213,22 +213,182 @@ body{
 .sms-delete-btn:hover { background: #b91c1c!important; }
 .sms-edit-btn { background: #059669!important; }
 .sms-edit-btn:hover { background: #047857!important; }
-.sms-action-btns { display: flex; gap: 5px; }
+.sms-action-btns { display: flex; gap: 5px; flex-wrap:wrap; }
 .sms-action-btns button { padding: 5px 10px; font-size: 12px; }
 
 @media (max-width: 768px) {
-   .sms-container table { font-size: 12px; }
-   .sms-container th,.sms-container td { padding: 5px; }
-   .sms-container input,.sms-container button { font-size: 16px; }
+.sms-container table { font-size: 12px; }
+.sms-container th,.sms-container td { padding: 5px; }
+.sms-container input,.sms-container button { font-size: 16px; }
 }
 
-/* Mobile Responsive */
+/* Mini Shop Styles */
+.shop-container{
+    background:linear-gradient(135deg,#0f172a,#7c3aed);
+    padding:20px;
+    border-radius:12px;
+    margin-top:20px;
+}
+
+.shop-header{
+    background:white;
+    padding:15px 20px;
+    border-radius:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.shop-header h3{
+    color:#7c3aed;
+    font-size:20px;
+}
+
+.shop-cart-btn{
+    background:linear-gradient(135deg,#ef4444,#dc2626);
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
+    font-family:'Poppins',sans-serif;
+}
+
+.shop-cart-count{
+    background:white;
+    color:#dc2626;
+    padding:2px 8px;
+    border-radius:50%;
+    margin-left:8px;
+}
+
+.shop-products{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+    gap:15px;
+}
+
+.shop-product-card{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.shop-product-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.shop-product-img{
+    width:100%;
+    height:140px;
+    background:linear-gradient(135deg,#ddd,#bbb);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:50px;
+    margin-bottom:12px;
+}
+
+.shop-product-card h4{
+    color:#1e293b;
+    margin-bottom:6px;
+    font-size:16px;
+}
+
+.shop-price{
+    color:#7c3aed;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.shop-add-btn{
+    width:100%;
+    padding:10px;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    font-family:'Poppins',sans-serif;
+    transition:0.3s;
+}
+
+.shop-add-btn:hover{
+    background:linear-gradient(135deg,#1d4ed8,#1e40af);
+}
+
+.shop-modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.shop-modal.active{
+    display:flex;
+}
+
+.shop-modal-content{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    max-width:500px;
+    width:90%;
+    max-height:80vh;
+    overflow-y:auto;
+}
+
+.shop-modal-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.shop-close-btn{
+    background:none;
+    border:none;
+    font-size:24px;
+    cursor:pointer;
+    color:#666;
+}
+
+.shop-cart-item{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.shop-total{
+    font-size:20px;
+    font-weight:bold;
+    color:#7c3aed;
+    text-align:right;
+    margin-top:15px;
+}
+
 @media (max-width: 600px){
     body{padding:15px;}
-   .header{padding:35px 20px;}
-   .header h1{font-size:28px;}
-   .profile{width:110px; height:110px; font-size:40px;}
-   .content{padding:20px;}
+.header{padding:35px 20px;}
+.header h1{font-size:28px;}
+.profile{width:110px; height:110px; font-size:40px;}
+.content{padding:20px;}
+.shop-products{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -321,6 +481,63 @@ I specialize in building modern, responsive, and user-friendly websites using HT
     </table>
 </div>
 
+<!-- Library Management System Demo -->
+<h3 style="margin-top:35px; color:#7c3aed;">📚 Library Management System - Live Demo</h3>
+<div class="sms-container" id="libraryContainer">
+    <form id="bookForm">
+        <input type="text" id="bookTitle" placeholder="Book Title" required>
+        <input type="text" id="bookAuthor" placeholder="Author Name" required>
+        <input type="text" id="bookISBN" placeholder="ISBN Number" required>
+        <div class="sms-btn-row">
+            <button type="submit" id="bookSubmitBtn">Add Book</button>
+        </div>
+    </form>
+
+    <h4 style="margin-top:20px;">Book List</h4>
+    <input type="text" id="bookSearchBox" placeholder="🔍 Search by Title or Author..." onkeyup="searchBook()">
+
+    <div style="overflow-x:auto;">
+    <table id="bookTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Late Fee</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    </div>
+</div>
+
+<!-- Mini Shop Demo -->
+<h3 style="margin-top:35px; color:#7c3aed;">🛒 Mini Shop - E-Commerce Demo</h3>
+<div class="shop-container">
+    <div class="shop-header">
+        <h3>Mini Shop</h3>
+        <button class="shop-cart-btn" onclick="openShopCart()">
+            Cart <span class="shop-cart-count" id="shopCartCount">0</span>
+        </button>
+    </div>
+    <div class="shop-products" id="shopProducts"></div>
+</div>
+
+<!-- Shop Cart Modal -->
+<div class="shop-modal" id="shopCartModal">
+    <div class="shop-modal-content">
+        <div class="shop-modal-header">
+            <h2>Your Cart</h2>
+            <button class="shop-close-btn" onclick="closeShopCart()">×</button>
+        </div>
+        <div id="shopCartItems"></div>
+        <div class="shop-total" id="shopTotal"></div>
+    </div>
+</div>
+
 <div class="github-link">
 🔗 <a href="https://github.com/udanaayumi19" target="_blank">View All Projects</a>
 </div>
@@ -357,97 +574,284 @@ I specialize in building modern, responsive, and user-friendly websites using HT
 </div>
 
 <script>
-    let students = JSON.parse(localStorage.getItem('students')) || [];
-    let editIndex = -1;
+// Student Management System Script
+let students = JSON.parse(localStorage.getItem('students')) || [];
+let editIndex = -1;
 
-    function displayStudents() {
-        const tbody = document.querySelector('#studentTable tbody');
-        tbody.innerHTML = '';
+function displayStudents() {
+    const tbody = document.querySelector('#studentTable tbody');
+    tbody.innerHTML = '';
 
-        students.forEach((student, index) => {
-            const row = tbody.insertRow();
-            row.innerHTML = `
-                <td>${student.name}</td>
-                <td>${student.phone}</td>
-                <td>${student.address}</td>
-                <td>${student.course}</td>
-                <td>${student.email}</td>
-                <td class="sms-action-btns">
-                    <button class="sms-edit-btn" onclick="editStudent(${index})">Edit</button>
-                    <button class="sms-delete-btn" onclick="deleteStudent(${index})">Delete</button>
-                </td>
-            `;
-        });
+    students.forEach((student, index) => {
+        const row = tbody.insertRow();
+        row.innerHTML = `
+            <td>${student.name}</td>
+            <td>${student.phone}</td>
+            <td>${student.address}</td>
+            <td>${student.course}</td>
+            <td>${student.email}</td>
+            <td class="sms-action-btns">
+                <button class="sms-edit-btn" onclick="editStudent(${index})">Edit</button>
+                <button class="sms-delete-btn" onclick="deleteStudent(${index})">Delete</button>
+            </td>
+        `;
+    });
+}
+
+document.getElementById('studentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const student = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        address: document.getElementById('address').value,
+        course: document.getElementById('course').value,
+        email: document.getElementById('email').value
+    };
+
+    if(editIndex >= 0) {
+        students[editIndex] = student;
+        editIndex = -1;
+        document.getElementById('submitBtn').innerText = "Add Student";
+    } else {
+        students.push(student);
     }
 
-    document.getElementById('studentForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+    localStorage.setItem('students', JSON.stringify(students));
+    displayStudents();
+    this.reset();
+});
 
-        const student = {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            address: document.getElementById('address').value,
-            course: document.getElementById('course').value,
-            email: document.getElementById('email').value
-        };
+function editStudent(index) {
+    editIndex = index;
+    let student = students[index];
+    document.getElementById('name').value = student.name;
+    document.getElementById('phone').value = student.phone;
+    document.getElementById('address').value = student.address;
+    document.getElementById('course').value = student.course;
+    document.getElementById('email').value = student.email;
+    document.getElementById('submitBtn').innerText = "Update Student";
+}
 
-        if(editIndex >= 0) {
-            students[editIndex] = student;
-            editIndex = -1;
-            document.getElementById('submitBtn').innerText = "Add Student";
-        } else {
-            students.push(student);
-        }
-
+function deleteStudent(index) {
+    if(confirm("Delete this student?")) {
+        students.splice(index, 1);
         localStorage.setItem('students', JSON.stringify(students));
         displayStudents();
-        this.reset();
+    }
+}
+
+function searchStudent() {
+    let input = document.getElementById('searchBox').value.toLowerCase();
+    let rows = document.querySelector('#studentTable tbody').getElementsByTagName('tr');
+
+    for(let i = 0; i < rows.length; i++) {
+        let text = rows[i].textContent.toLowerCase();
+        rows[i].style.display = text.includes(input)? '' : 'none';
+    }
+}
+
+function exportCSV() {
+    let csv = 'Name,Phone,Address,Course,Email\n';
+    students.forEach(s => {
+        csv += `"${s.name}","${s.phone}","${s.address}","${s.course}","${s.email}"\n`;
     });
 
-    function editStudent(index) {
-        editIndex = index;
-        let student = students[index];
-        document.getElementById('name').value = student.name;
-        document.getElementById('phone').value = student.phone;
-        document.getElementById('address').value = student.address;
-        document.getElementById('course').value = student.course;
-        document.getElementById('email').value = student.email;
-        document.getElementById('submitBtn').innerText = "Update Student";
+    let blob = new Blob([csv], {type: 'text/csv'});
+    let url = window.URL.createObjectURL(blob);
+    let a = document.createElement('a');
+    a.href = url;
+    a.download = 'students.csv';
+    a.click();
+}
+
+displayStudents();
+
+// Library Management System Script - FIXED
+let books = JSON.parse(localStorage.getItem('libraryBooks')) || [];
+let bookEditIndex = -1;
+const LATE_FEE_PER_DAY = 50;
+
+function getDueDate(){
+    const date = new Date();
+    date.setDate(date.getDate() + 14);
+    return date.toISOString().split('T')[0];
+}
+
+function calculateLateFee(dueDate){
+    if(!dueDate) return 0;
+    const today = new Date();
+    const due = new Date(dueDate);
+    const diffTime = today - due;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays > 0? diffDays * LATE_FEE_PER_DAY : 0;
+}
+
+function displayBooks() {
+    const tbody = document.querySelector('#bookTable tbody');
+    tbody.innerHTML = '';
+
+    books.forEach((book, index) => {
+        const row = tbody.insertRow(); // FIXED: row variable was missing
+        const statusColor = book.status === 'Available'? '#059669' : '#dc2626';
+        const lateFee = calculateLateFee(book.dueDate);
+
+        row.innerHTML = `
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.isbn}</td>
+            <td style="color:${statusColor}; font-weight:bold;">${book.status}</td>
+            <td>${book.dueDate || '-'}</td>
+            <td style="color:${lateFee>0?'#dc2626':'#059669'}; font-weight:bold;">
+                ${lateFee>0?'Rs '+lateFee:'-'}
+            </td>
+            <td class="sms-action-btns">
+                <button class="sms-edit-btn" onclick="editBook(${index})">Edit</button>
+                <button class="${book.status==='Available'?'sms-delete-btn':'sms-edit-btn'}"
+                        onclick="toggleIssue(${index})">
+                    ${book.status==='Available'?'Issue':'Return'}
+                </button>
+                <button class="sms-delete-btn" onclick="deleteBook(${index})">Delete</button>
+            </td>
+        `;
+    });
+}
+
+document.getElementById('bookForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const book = {
+        title: document.getElementById('bookTitle').value,
+        author: document.getElementById('bookAuthor').value,
+        isbn: document.getElementById('bookISBN').value,
+        status: 'Available',
+        dueDate: null
+    };
+
+    if(bookEditIndex >= 0) {
+        book.status = books[bookEditIndex].status;
+        book.dueDate = books[bookEditIndex].dueDate;
+        books[bookEditIndex] = book;
+        bookEditIndex = -1;
+        document.getElementById('bookSubmitBtn').innerText = "Add Book";
+    } else {
+        books.push(book);
     }
 
-    function deleteStudent(index) {
-        if(confirm("Delete this student?")) {
-            students.splice(index, 1);
-            localStorage.setItem('students', JSON.stringify(students));
-            displayStudents();
+    localStorage.setItem('libraryBooks', JSON.stringify(books));
+    displayBooks();
+    this.reset();
+});
+
+function editBook(index) {
+    bookEditIndex = index;
+    let book = books[index];
+    document.getElementById('bookTitle').value = book.title;
+    document.getElementById('bookAuthor').value = book.author;
+    document.getElementById('bookISBN').value = book.isbn;
+    document.getElementById('bookSubmitBtn').innerText = "Update Book";
+}
+
+function deleteBook(index) {
+    if(confirm("Delete this book?")) {
+        books.splice(index, 1);
+        localStorage.setItem('libraryBooks', JSON.stringify(books));
+        displayBooks();
+    }
+}
+
+function toggleIssue(index) {
+    if(books[index].status === 'Available'){
+        books[index].status = 'Issued';
+        books[index].dueDate = getDueDate();
+    } else {
+        const fee = calculateLateFee(books[index].dueDate);
+        if(fee > 0){
+            alert(`Late Fee: Rs ${fee}`);
         }
+        books[index].status = 'Available';
+        books[index].dueDate = null;
+    }
+    localStorage.setItem('libraryBooks', JSON.stringify(books));
+    displayBooks();
+}
+
+function searchBook() {
+    let input = document.getElementById('bookSearchBox').value.toLowerCase();
+    let rows = document.querySelector('#bookTable tbody').getElementsByTagName('tr');
+
+    for(let i = 0; i < rows.length; i++) {
+        let text = rows[i].textContent.toLowerCase();
+        rows[i].style.display = text.includes(input)? '' : 'none';
+    }
+}
+
+displayBooks();
+
+// Mini Shop Script
+const shopProducts = [
+    {id:1, name:"Wireless Headphones", price:4500, emoji:"🎧"},
+    {id:2, name:"Smart Watch", price:8900, emoji:"⌚"},
+    {id:3, name:"Laptop Bag", price:3200, emoji:"💼"},
+    {id:4, name:"Phone Stand", price:1200, emoji:"📱"},
+    {id:5, name:"Keyboard", price:5600, emoji:"⌨️"},
+    {id:6, name:"Mouse", price:2800, emoji:"🖱️"}
+];
+
+let shopCart = [];
+
+function displayShopProducts(){
+    const container = document.getElementById('shopProducts');
+    container.innerHTML = shopProducts.map(p => `
+        <div class="shop-product-card">
+            <div class="shop-product-img">${p.emoji}</div>
+            <h4>${p.name}</h4>
+            <div class="shop-price">Rs. ${p.price}</div>
+            <button class="shop-add-btn" onclick="addToShopCart(${p.id})">Add to Cart</button>
+        </div>
+    `).join('');
+}
+
+function addToShopCart(id){
+    const product = shopProducts.find(p => p.id === id);
+    shopCart.push(product);
+    updateShopCartCount();
+    alert(`${product.name} added to cart!`);
+}
+
+function updateShopCartCount(){
+    document.getElementById('shopCartCount').innerText = shopCart.length;
+}
+
+function openShopCart(){
+    document.getElementById('shopCartModal').classList.add('active');
+    displayShopCart();
+}
+
+function closeShopCart(){
+    document.getElementById('shopCartModal').classList.remove('active');
+}
+
+function displayShopCart(){
+    const container = document.getElementById('shopCartItems');
+    if(shopCart.length === 0){
+        container.innerHTML = '<p>Cart is empty</p>';
+        document.getElementById('shopTotal').innerText = '';
+        return;
     }
 
-    function searchStudent() {
-        let input = document.getElementById('searchBox').value.toLowerCase();
-        let rows = document.querySelector('#studentTable tbody').getElementsByTagName('tr');
+    container.innerHTML = shopCart.map(item => `
+        <div class="shop-cart-item">
+            <span>${item.emoji} ${item.name}</span>
+            <span>Rs. ${item.price}</span>
+        </div>
+    `).join('');
 
-        for(let i = 0; i < rows.length; i++) {
-            let text = rows[i].textContent.toLowerCase();
-            rows[i].style.display = text.includes(input)? '' : 'none';
-        }
-    }
+    const total = shopCart.reduce((sum, item) => sum + item.price, 0);
+    document.getElementById('shopTotal').innerText = `Total: Rs. ${total}`;
+}
 
-    function exportCSV() {
-        let csv = 'Name,Phone,Address,Course,Email\n';
-        students.forEach(s => {
-            csv += `"${s.name}","${s.phone}","${s.address}","${s.course}","${s.email}"\n`;
-        });
-
-        let blob = new Blob([csv], {type: 'text/csv'});
-        let url = window.URL.createObjectURL(blob);
-        let a = document.createElement('a');
-        a.href = url;
-        a.download = 'students.csv';
-        a.click();
-    }
-
-    displayStudents();
+displayShopProducts();
 </script>
 
 </body>
