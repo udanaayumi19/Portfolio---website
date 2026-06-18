@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A.W.Ayumi Udana Portfolio & Digital CV">
-<title>A.W.Ayumi Udana Web Designer | Web Developer |  Front - end Developer  | HTML | CSS | Js</title>
+<title>A.W.Ayumi Udana - Front-end Developer | HTML5 CSS3 JavaScript | Responsive Websites</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -153,6 +153,52 @@ body{
 }
 
 .contact{text-align:center;}
+
+/* Hire Me Form Styles */
+.hire-form{
+    max-width:500px;
+    margin:20px auto 0;
+    text-align:left;
+}
+
+.hire-form input,.hire-form textarea{
+    width:100%;
+    padding:12px 15px;
+    margin:8px 0;
+    border:2px solid var(--border);
+    border-radius:8px;
+    font-family:'Poppins',Arial,sans-serif;
+    font-size:14px;
+    background:var(--bg);
+    color:var(--text);
+    transition:0.3s;
+}
+
+.hire-form input:focus,.hire-form textarea:focus{
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(124,58,237,0.1);
+}
+
+.hire-form button{
+    width:100%;
+    padding:14px;
+    background:linear-gradient(135deg,#2563eb,var(--primary));
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+    font-family:'Poppins',sans-serif;
+    margin-top:10px;
+    transition:0.3s;
+}
+
+.hire-form button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(124,58,237,0.3);
+}
 
 .btn{
     display:inline-block;
@@ -422,11 +468,11 @@ body{
 
 @media (max-width: 768px) {
     body{padding:15px;}
-  .header{padding:35px 20px;}
-  .header h1{font-size:28px;}
-  .profile{width:110px; height:110px; font-size:40px;}
-  .content{padding:20px;}
-  .shop-products{grid-template-columns:1fr;}
+.header{padding:35px 20px;}
+.header h1{font-size:28px;}
+.profile{width:110px; height:110px; font-size:40px;}
+.content{padding:20px;}
+.shop-products{grid-template-columns:1fr;}
     #themeBtn{top:15px; right:15px; padding:6px 12px; font-size:14px;}
 }
 </style>
@@ -441,7 +487,7 @@ body{
 <div class="profile">A</div>
 </a>
 <h1>A.W.Ayumi Udana</h1>
-<p>Digital CV & Portfolio</p>
+<p>Front-end Developer | HTML5, CSS3, JavaScript | Responsive & Fast Websites</p>
 </div>
 
 <div class="content">
@@ -449,9 +495,7 @@ body{
 <div class="section">
 <h2>About Me</h2>
 <div class="card">
-<p>
-Hi! I’m A.W. Ayumi Udana, a passionate and creative Software Developer who loves turning ideas into real digital experiences.
-I specialize in building modern, responsive, and user-friendly websites using HTML, CSS, JavaScript, PHP, MySQL, and Python.</p>
+<p>Hi! I’m A.W. Ayumi Udana, a Front-end Developer who turns Figma designs into fast, responsive websites using HTML5, CSS3, and JavaScript. I also work with PHP, MySQL, and Python for backend basics.</p>
 <br>
 <p>💡 What I Do</p><br>
 <p>🌐 Responsive Website Development</p>
@@ -469,12 +513,12 @@ I specialize in building modern, responsive, and user-friendly websites using HT
 <h2>Skills</h2>
 <div class="card">
 <div class="skills">
-<span class="skill"><i class="fa-brands fa-html5 html-icon"></i>HTML</span>
-<span class="skill"><i class="fa-brands fa-css3-alt css-icon"></i>CSS</span>
+<span class="skill"><i class="fa-brands fa-html5 html-icon"></i>HTML5</span>
+<span class="skill"><i class="fa-brands fa-css3-alt css-icon"></i>CSS3</span>
 <span class="skill"><i class="fa-brands fa-js js-icon"></i>JavaScript</span>
-<span class="skill"><i class="fa-brands fa-python python-icon"></i>Python</span>
 <span class="skill"><i class="fa-brands fa-php php-icon"></i>PHP</span>
 <span class="skill"><i class="fa-solid fa-database mysql-icon"></i>MySQL</span>
+<span class="skill"><i class="fa-brands fa-python python-icon"></i>Python</span>
 <span class="skill"><i class="fa-solid fa-file-excel excel-icon"></i>Excel</span>
 <span class="skill"><i class="fa-solid fa-robot ai-icon"></i>AI Tools</span>
 </div>
@@ -602,6 +646,17 @@ I specialize in building modern, responsive, and user-friendly websites using HT
 <a href="mailto:udanaayumi19@gmail.com" class="btn">
 📧 Email - udanaayumi19@gmail.com
 </a>
+
+<h3 style="margin-top:30px; color:var(--primary);">💼 Hire Me</h3>
+<p style="margin-bottom:15px;">Have a project in mind? Let's talk!</p>
+
+<form class="hire-form" action="https://formspree.io/f/yourID" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+    <button type="submit">Send Message 🚀</button>
+</form>
+
 </div>
 </div>
 </div>
@@ -905,12 +960,6 @@ function displayShopCart(){
 
 displayShopProducts();
 </script>
-
-<form action="https://formspree.io/f/yourID" method="POST">
-  <input type="email" name="email">
-  <textarea name="message"></textarea>
-  <button>Send</button>
-</form>
 
 </body>
 </html>
